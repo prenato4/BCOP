@@ -1,0 +1,378 @@
+fileFormatVersion: 2
+guid: 1705c5b8df5c7c94885ece4ceb0ce0d1
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: PC Computer - Hollow Knight - Troupe Master Grimm_48
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 205
+        width: 138
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a04bee92392655d40bb31795e6690682
+      internalID: -351396377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Hollow Knight - Troupe Master Grimm_50
+      rect:
+        serializedVersion: 2
+        x: 147
+        y: 205
+        width: 138
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53729236e0b8abc4fabf9d32f8e04264
+      internalID: 513614307
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Hollow Knight - Troupe Master Grimm_52
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 205
+        width: 138
+        height: 156
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40123936c53983d41a2f57637fe52edf
+      internalID: 194633378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Hollow Knight - Troupe Master Grimm_63
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 54
+        width: 304
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aa7c769716bd1342b81ba87cfa6e929
+      internalID: -1898451495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PC Computer - Hollow Knight - Troupe Master Grimm_95
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 55
+        width: 285
+        height: 268
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44ab8668a7fa7cf4da44993d2223f963
+      internalID: -1737002755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      PC Computer - Hollow Knight - Troupe Master Grimm_126: -13228647
+      PC Computer - Hollow Knight - Troupe Master Grimm_137: -1724481087
+      PC Computer - Hollow Knight - Troupe Master Grimm_60: -320131005
+      PC Computer - Hollow Knight - Troupe Master Grimm_64: -1647925516
+      PC Computer - Hollow Knight - Troupe Master Grimm_130: 2107784512
+      PC Computer - Hollow Knight - Troupe Master Grimm_84: -2099810432
+      PC Computer - Hollow Knight - Troupe Master Grimm_87: 1413835639
+      PC Computer - Hollow Knight - Troupe Master Grimm_139: -1455831266
+      PC Computer - Hollow Knight - Troupe Master Grimm_141: 162739888
+      PC Computer - Hollow Knight - Troupe Master Grimm_136: -869760996
+      PC Computer - Hollow Knight - Troupe Master Grimm_66: -1512496579
+      PC Computer - Hollow Knight - Troupe Master Grimm_50: 513614307
+      PC Computer - Hollow Knight - Troupe Master Grimm_54: -954470227
+      PC Computer - Hollow Knight - Troupe Master Grimm_128: 538359451
+      PC Computer - Hollow Knight - Troupe Master Grimm_146: -693426528
+      PC Computer - Hollow Knight - Troupe Master Grimm_5: -1861062175
+      PC Computer - Hollow Knight - Troupe Master Grimm_7: -1816049687
+      PC Computer - Hollow Knight - Troupe Master Grimm_129: -135968898
+      PC Computer - Hollow Knight - Troupe Master Grimm_8: 869044539
+      PC Computer - Hollow Knight - Troupe Master Grimm_113: 46597574
+      PC Computer - Hollow Knight - Troupe Master Grimm_88: 1768313376
+      PC Computer - Hollow Knight - Troupe Master Grimm_117: 1785801315
+      PC Computer - Hollow Knight - Troupe Master Grimm_96: 472006460
+      PC Computer - Hollow Knight - Troupe Master Grimm_35: -1821744949
+      PC Computer - Hollow Knight - Troupe Master Grimm_71: -1256773547
+      PC Computer - Hollow Knight - Troupe Master Grimm_59: 1193603108
+      PC Computer - Hollow Knight - Troupe Master Grimm_70: -402416574
+      PC Computer - Hollow Knight - Troupe Master Grimm_53: -1224900192
+      PC Computer - Hollow Knight - Troupe Master Grimm_72: 418511315
+      PC Computer - Hollow Knight - Troupe Master Grimm_105: 1532289111
+      PC Computer - Hollow Knight - Troupe Master Grimm_16: -255572029
+      PC Computer - Hollow Knight - Troupe Master Grimm_42: 220446423
+      PC Computer - Hollow Knight - Troupe Master Grimm_127: -1188503298
+      PC Computer - Hollow Knight - Troupe Master Grimm_29: -891047968
+      PC Computer - Hollow Knight - Troupe Master Grimm_10: -1971781931
+      PC Computer - Hollow Knight - Troupe Master Grimm_73: 128799995
+      PC Computer - Hollow Knight - Troupe Master Grimm_21: -1589175221
+      PC Computer - Hollow Knight - Troupe Master Grimm_48: -351396377
+      PC Computer - Hollow Knight - Troupe Master Grimm_68: -2072206219
+      PC Computer - Hollow Knight - Troupe Master Grimm_150: -2135423375
+      PC Computer - Hollow Knight - Troupe Master Grimm_89: -1823652115
+      PC Computer - Hollow Knight - Troupe Master Grimm_24: -1422105099
+      PC Computer - Hollow Knight - Troupe Master Grimm_44: -1121974640
+      PC Computer - Hollow Knight - Troupe Master Grimm_38: -1033862271
+      PC Computer - Hollow Knight - Troupe Master Grimm_19: -1110002021
+      PC Computer - Hollow Knight - Troupe Master Grimm_46: -1387702690
+      PC Computer - Hollow Knight - Troupe Master Grimm_79: -1764561204
+      PC Computer - Hollow Knight - Troupe Master Grimm_95: -1737002755
+      PC Computer - Hollow Knight - Troupe Master Grimm_99: -1819350575
+      PC Computer - Hollow Knight - Troupe Master Grimm_27: -1157025656
+      PC Computer - Hollow Knight - Troupe Master Grimm_65: 773793336
+      PC Computer - Hollow Knight - Troupe Master Grimm_80: 2068837373
+      PC Computer - Hollow Knight - Troupe Master Grimm_111: 73034436
+      PC Computer - Hollow Knight - Troupe Master Grimm_106: 1291723375
+      PC Computer - Hollow Knight - Troupe Master Grimm_131: -1799233552
+      PC Computer - Hollow Knight - Troupe Master Grimm_116: 638774074
+      PC Computer - Hollow Knight - Troupe Master Grimm_138: -1784393965
+      PC Computer - Hollow Knight - Troupe Master Grimm_82: 221257349
+      PC Computer - Hollow Knight - Troupe Master Grimm_121: 1054262678
+      PC Computer - Hollow Knight - Troupe Master Grimm_108: 1119408577
+      PC Computer - Hollow Knight - Troupe Master Grimm_43: 1679142587
+      PC Computer - Hollow Knight - Troupe Master Grimm_52: 194633378
+      PC Computer - Hollow Knight - Troupe Master Grimm_149: -1846351754
+      PC Computer - Hollow Knight - Troupe Master Grimm_123: -917808050
+      PC Computer - Hollow Knight - Troupe Master Grimm_45: 2090726192
+      PC Computer - Hollow Knight - Troupe Master Grimm_4: 54019227
+      PC Computer - Hollow Knight - Troupe Master Grimm_118: -1781764934
+      PC Computer - Hollow Knight - Troupe Master Grimm_47: 1983867505
+      PC Computer - Hollow Knight - Troupe Master Grimm_147: -1080178212
+      PC Computer - Hollow Knight - Troupe Master Grimm_83: 706117511
+      PC Computer - Hollow Knight - Troupe Master Grimm_107: -2043029617
+      PC Computer - Hollow Knight - Troupe Master Grimm_26: -1103301098
+      PC Computer - Hollow Knight - Troupe Master Grimm_39: 1313738595
+      PC Computer - Hollow Knight - Troupe Master Grimm_124: -840189185
+      PC Computer - Hollow Knight - Troupe Master Grimm_17: -992002481
+      PC Computer - Hollow Knight - Troupe Master Grimm_94: -456983543
+      PC Computer - Hollow Knight - Troupe Master Grimm_135: 1462414141
+      PC Computer - Hollow Knight - Troupe Master Grimm_18: 1361624980
+      PC Computer - Hollow Knight - Troupe Master Grimm_78: -188578765
+      PC Computer - Hollow Knight - Troupe Master Grimm_51: -1336775862
+      PC Computer - Hollow Knight - Troupe Master Grimm_25: 1709119430
+      PC Computer - Hollow Knight - Troupe Master Grimm_148: 1375125956
+      PC Computer - Hollow Knight - Troupe Master Grimm_85: -1901837490
+      PC Computer - Hollow Knight - Troupe Master Grimm_15: -1868909898
+      PC Computer - Hollow Knight - Troupe Master Grimm_74: 434532851
+      PC Computer - Hollow Knight - Troupe Master Grimm_62: 1582594778
+      PC Computer - Hollow Knight - Troupe Master Grimm_104: -2132354364
+      PC Computer - Hollow Knight - Troupe Master Grimm_112: -445776050
+      PC Computer - Hollow Knight - Troupe Master Grimm_91: 935860113
+      PC Computer - Hollow Knight - Troupe Master Grimm_9: -188861279
+      PC Computer - Hollow Knight - Troupe Master Grimm_93: 412828899
+      PC Computer - Hollow Knight - Troupe Master Grimm_67: 1874586723
+      PC Computer - Hollow Knight - Troupe Master Grimm_86: 1907903343
+      PC Computer - Hollow Knight - Troupe Master Grimm_103: -4882383
+      PC Computer - Hollow Knight - Troupe Master Grimm_30: -2039400970
+      PC Computer - Hollow Knight - Troupe Master Grimm_3: 1299857870
+      PC Computer - Hollow Knight - Troupe Master Grimm_133: 1638251291
+      PC Computer - Hollow Knight - Troupe Master Grimm_28: 1840409453
+      PC Computer - Hollow Knight - Troupe Master Grimm_2: -966516649
+      PC Computer - Hollow Knight - Troupe Master Grimm_81: 823370805
+      PC Computer - Hollow Knight - Troupe Master Grimm_32: 767401439
+      PC Computer - Hollow Knight - Troupe Master Grimm_120: 2111184009
+      PC Computer - Hollow Knight - Troupe Master Grimm_14: 1847536418
+      PC Computer - Hollow Knight - Troupe Master Grimm_37: 1935434153
+      PC Computer - Hollow Knight - Troupe Master Grimm_58: 2126676429
+      PC Computer - Hollow Knight - Troupe Master Grimm_12: 1073337015
+      PC Computer - Hollow Knight - Troupe Master Grimm_13: 1886837039
+      PC Computer - Hollow Knight - Troupe Master Grimm_92: 681564079
+      PC Computer - Hollow Knight - Troupe Master Grimm_110: 1609259188
+      PC Computer - Hollow Knight - Troupe Master Grimm_31: -877581948
+      PC Computer - Hollow Knight - Troupe Master Grimm_119: 1768629656
+      PC Computer - Hollow Knight - Troupe Master Grimm_145: 123981253
+      PC Computer - Hollow Knight - Troupe Master Grimm_69: -1947303307
+      PC Computer - Hollow Knight - Troupe Master Grimm_100: 830311076
+      PC Computer - Hollow Knight - Troupe Master Grimm_122: 318271074
+      PC Computer - Hollow Knight - Troupe Master Grimm_11: 360814595
+      PC Computer - Hollow Knight - Troupe Master Grimm_63: -1898451495
+      PC Computer - Hollow Knight - Troupe Master Grimm_40: -929438395
+      PC Computer - Hollow Knight - Troupe Master Grimm_115: 385126954
+      PC Computer - Hollow Knight - Troupe Master Grimm_132: 1805834933
+      PC Computer - Hollow Knight - Troupe Master Grimm_36: 37171159
+      PC Computer - Hollow Knight - Troupe Master Grimm_125: 925420788
+      PC Computer - Hollow Knight - Troupe Master Grimm_134: -449529289
+      PC Computer - Hollow Knight - Troupe Master Grimm_142: 103804977
+      PC Computer - Hollow Knight - Troupe Master Grimm_20: 1170223429
+      PC Computer - Hollow Knight - Troupe Master Grimm_22: 530990957
+      PC Computer - Hollow Knight - Troupe Master Grimm_109: 1764142923
+      PC Computer - Hollow Knight - Troupe Master Grimm_23: -625700546
+      PC Computer - Hollow Knight - Troupe Master Grimm_1: -19655326
+      PC Computer - Hollow Knight - Troupe Master Grimm_114: -2058705010
+      PC Computer - Hollow Knight - Troupe Master Grimm_77: -462162946
+      PC Computer - Hollow Knight - Troupe Master Grimm_140: -70489148
+      PC Computer - Hollow Knight - Troupe Master Grimm_33: 1550905681
+      PC Computer - Hollow Knight - Troupe Master Grimm_0: -38582532
+      PC Computer - Hollow Knight - Troupe Master Grimm_55: -542168139
+      PC Computer - Hollow Knight - Troupe Master Grimm_90: -89620771
+      PC Computer - Hollow Knight - Troupe Master Grimm_49: -320871242
+      PC Computer - Hollow Knight - Troupe Master Grimm_143: 116775132
+      PC Computer - Hollow Knight - Troupe Master Grimm_144: -643751729
+      PC Computer - Hollow Knight - Troupe Master Grimm_75: 1694047211
+      PC Computer - Hollow Knight - Troupe Master Grimm_56: -540363480
+      PC Computer - Hollow Knight - Troupe Master Grimm_97: -434924079
+      PC Computer - Hollow Knight - Troupe Master Grimm_98: 1053354868
+      PC Computer - Hollow Knight - Troupe Master Grimm_61: -828930722
+      PC Computer - Hollow Knight - Troupe Master Grimm_76: -1715100178
+      PC Computer - Hollow Knight - Troupe Master Grimm_34: -808746682
+      PC Computer - Hollow Knight - Troupe Master Grimm_6: -2112093073
+      PC Computer - Hollow Knight - Troupe Master Grimm_57: -1051648904
+      PC Computer - Hollow Knight - Troupe Master Grimm_101: 509492920
+      PC Computer - Hollow Knight - Troupe Master Grimm_41: 588650879
+      PC Computer - Hollow Knight - Troupe Master Grimm_102: 728254708
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
