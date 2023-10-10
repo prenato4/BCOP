@@ -878,7 +878,7 @@ Transform:
   m_GameObject: {fileID: 1113351248}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -40.15, y: -10.08, z: -10}
-  m_LocalScale: {x: 2.9857368, y: 10.300793, z: 2.9857368}
+  m_LocalScale: {x: 1.1409762, y: 3.936368, z: 1.1409762}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -897,6 +897,7 @@ GameObject:
   - component: {fileID: 2027699680}
   - component: {fileID: 2027699679}
   - component: {fileID: 2027699678}
+  - component: {fileID: 2027699683}
   m_Layer: 0
   m_Name: Player_FAIRY
   m_TagString: Untagged
@@ -1031,13 +1032,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2027699677}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -47.117, y: -13.348, z: 0}
-  m_LocalScale: {x: 0.19837841, y: 0.19837841, z: 0.19837841}
+  m_LocalPosition: {x: -41.47, y: -13.13, z: 0}
+  m_LocalScale: {x: 0.27566534, y: 0.27566534, z: 0.27566534}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2027699683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027699677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ba60ab1228d7f04a81dec2b2716d991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
 --- !u!1 &2069641985
 GameObject:
   m_ObjectHideFlags: 0
