@@ -1290,7 +1290,7 @@ GameObject:
   - component: {fileID: 2027699678}
   - component: {fileID: 2027699683}
   m_Layer: 0
-  m_Name: Player_FAIRY
+  m_Name: BOSS_FAIRY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1336,7 +1336,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &2027699680
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1443,6 +1443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  walkTime: 3
 --- !u!1 &2069641985
 GameObject:
   m_ObjectHideFlags: 0
