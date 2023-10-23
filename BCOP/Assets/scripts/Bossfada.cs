@@ -6,16 +6,19 @@ public class Bossfada : MonoBehaviour
 {
     public float speed;
     public float flayTime;
+    public bool flayRight = true;
 
+    public int health;
     private float timer;
-    private bool flayRight = true;
 
+    private Animator anim;
     private Rigidbody2D rig;
     
     // Start is called before the first frame update
     void Start()
     {
         rig = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -38,6 +41,17 @@ public class Bossfada : MonoBehaviour
         {
             transform.eulerAngles = new Vector2(0, 180);
             rig.velocity = Vector2.left * speed;
+        }
+    }
+
+    public void Damage(int dmg)
+    {
+        health -= dmg; 
+        anim.SetTrigger("hit");
+
+        if (health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
 }

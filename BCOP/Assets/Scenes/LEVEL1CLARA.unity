@@ -3349,9 +3349,7 @@ GameObject:
   - component: {fileID: 2027699680}
   - component: {fileID: 2027699679}
   - component: {fileID: 2027699678}
-  - component: {fileID: 2027699683}
   - component: {fileID: 2027699684}
-  - component: {fileID: 2027699685}
   m_Layer: 0
   m_Name: BOSS_FAIRY
   m_TagString: Untagged
@@ -3493,35 +3491,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2027699683
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027699677}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ba60ab1228d7f04a81dec2b2716d991, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  walkTime: 3
 --- !u!114 &2027699684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2027699677}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1fe8e7e262072c44dbf607bd931a0783, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  flayTime: 3
---- !u!114 &2027699685
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3530,12 +3500,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 2027699677}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d2de787fc7303b489d3a721b7452582, type: 3}
+  m_Script: {fileID: 11500000, guid: 1fe8e7e262072c44dbf607bd931a0783, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  flayngTime: 3
-  health: 0
+  flayTime: 3
+  flayRight: 1
+  health: 5
 --- !u!1 &2033615596
 GameObject:
   m_ObjectHideFlags: 0
