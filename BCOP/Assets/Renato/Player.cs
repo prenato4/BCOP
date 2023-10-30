@@ -5,12 +5,20 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    private bool hasDashAbility = false; // Variável para rastrear a habilidade de Dash adquirida
+    private bool hasShieldAbility = false; // Variável para rastrear a habilidade do Escudo adquirida
+
+    
+    public Text lifeText;
 
     private bool isDashing = false;
     private bool isInvulnerable = false;
     private float dashDuration = 0.5f; // Ajuste a duração do dash conforme necessário
     public float dashDistance = 2.0f; // Ajuste a distância do dash conforme necessário
     
+    public Text dashCooldownText;
+    public Text shieldCooldownText;
+
     
     private float shieldDuration = 3.0f;
     private float shieldCooldown = 20.0f;
@@ -48,7 +56,8 @@ public class Player : MonoBehaviour
         
         shieldObject = null;
 
-        
+        lifeText = GameObject.Find("lifeText").GetComponent<Text>();
+
 
     }
 
@@ -69,8 +78,48 @@ public class Player : MonoBehaviour
                 ToggleShield(); // Ativar ou desativar o escudo
             }
         }
-        
+        // Atualizar o texto do tempo de recarga do dash
+        float lastDashTime = 0;
+        float dashCooldown = 0;
+        if (Time.time - lastDashTime < dashCooldown)
+        {
+            float remainingDashCooldown = dashCooldown - (Time.time - lastDashTime);
+            dashCooldownText.text = "TP em: " + remainingDashCooldown.ToString("F1");
+        }
+        else
+        {
+            dashCooldownText.text = "TP Pronto";
+        }
+
+        // Atualizar o texto do tempo de recarga do escudo
+        if (isShieldActive)
+        {
+            shieldCooldownText.text = "Escudo Ativado";
+        }
+        else if (Time.time - lastShieldActivationTime < shieldCooldown)
+        {
+            float remainingShieldCooldown = shieldCooldown - (Time.time - lastShieldActivationTime);
+            shieldCooldownText.text = "Escudo em: " + remainingShieldCooldown.ToString("F1");
+        }
+        else
+        {
+            shieldCooldownText.text = "Escudo Pronto";
+        }
+        lifeText.text = "Life: " + health;
+
+        // Verificar se o jogador adquiriu a habilidade de Dash
+        if (Input.GetKeyDown(KeyCode.E) && hasDashAbility)
+        {
+            Dash();
+        }
+
+        // Verificar se o jogador adquiriu a habilidade do Escudo
+        if (Input.GetKeyDown(KeyCode.A) && hasShieldAbility)
+        {
+            ToggleShield();
+        }
     }
+    
     
     void ToggleShield()
     {
@@ -83,8 +132,13 @@ public class Player : MonoBehaviour
             shieldObject = new GameObject("Shield");
             SpriteRenderer spriteRenderer = shieldObject.AddComponent<SpriteRenderer>();
             spriteRenderer.sprite = shieldSprite;
-            spriteRenderer.sortingOrder = 1; // Certifique-se de que o escudo apareça acima do personagem
-            shieldObject.transform.position = transform.position;
+            spriteRenderer.sortingOrder = 3; // Certifique-se de que o escudo apareça acima do personagem
+            
+            // Defina a posição do escudo um pouco mais abaixo em relação ao jogador
+            Vector3 shieldPosition = transform.position;
+            shieldPosition.y -= 0.2f; // Ajuste o valor conforme necessário para controlar a posição vertical
+            shieldObject.transform.position = shieldPosition;
+            
             shieldObject.transform.parent = transform; // Tornar o escudo filho do personagem
             isShieldActive = true;
             
@@ -273,7 +327,8 @@ public class Player : MonoBehaviour
     }
     
     private void OnTriggerEnter2D(Collider2D CL)
-    {
+    {     
+        
         if (CL.gameObject.layer == 6)
         {
             IsJumPing = false;
@@ -281,3 +336,5 @@ public class Player : MonoBehaviour
         
     }
 }
+
+

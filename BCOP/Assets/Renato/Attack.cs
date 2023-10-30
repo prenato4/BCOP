@@ -41,12 +41,16 @@ public class Attack : MonoBehaviour
             CO.GetComponent<Boss>().Damage(damage);
             Destroy(gameObject);
         }
-
-        /*if (CO.gameObject.tag == "animals")
+        if (CO.gameObject.tag == "BOSSI")
         {
-            CO.GetComponent<Animals>().Damage(damage);
+            CO.GetComponent<Boss>().Damage(damage);
             Destroy(gameObject);
-        }*/
+        }
+        if (CO.gameObject.tag == "BOSSII")
+        {
+            CO.GetComponent<Boss>().Damage(damage);
+            Destroy(gameObject);
+        }
             
         
     }

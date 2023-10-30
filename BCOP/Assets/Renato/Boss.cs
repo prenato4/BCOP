@@ -49,11 +49,12 @@ public class Boss : MonoBehaviour
 
     public void Damage(int D)
     {
-        An.SetTrigger("hit");
+     
         health -= D;
 
         if (health <= 0)
         {
+            
             Destroy(gameObject);
         }
     }
