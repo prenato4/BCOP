@@ -2,13 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    private bool hasDashAbility = false; // Variável para rastrear a habilidade de Dash adquirida
-    private bool hasShieldAbility = false; // Variável para rastrear a habilidade do Escudo adquirida
 
-    
     public Text lifeText;
 
     private bool isDashing = false;
@@ -36,6 +34,9 @@ public class Player : MonoBehaviour
 
     private bool isfire;
     private bool IsJumPing;
+    public bool stage2 = false;
+    public bool stage3 = false;
+    
     private Rigidbody2D RIG;
     private Animator AN;
     private float M;
@@ -107,55 +108,48 @@ public class Player : MonoBehaviour
         }
         lifeText.text = "Life: " + health;
 
-        // Verificar se o jogador adquiriu a habilidade de Dash
-        if (Input.GetKeyDown(KeyCode.E) && hasDashAbility)
-        {
-            Dash();
-        }
-
-        // Verificar se o jogador adquiriu a habilidade do Escudo
-        if (Input.GetKeyDown(KeyCode.A) && hasShieldAbility)
-        {
-            ToggleShield();
-        }
+        
     }
     
     
     void ToggleShield()
     {
-        
-        float currentTime = Time.time;
-        
-        if (!isShieldActive && (currentTime - lastShieldActivationTime >= shieldCooldown))
+        if (stage3 == true
+            )
         {
-            // Criar o escudo como um objeto GameObject com o sprite do escudo
-            shieldObject = new GameObject("Shield");
-            SpriteRenderer spriteRenderer = shieldObject.AddComponent<SpriteRenderer>();
-            spriteRenderer.sprite = shieldSprite;
-            spriteRenderer.sortingOrder = 3; // Certifique-se de que o escudo apareça acima do personagem
-            
-            // Defina a posição do escudo um pouco mais abaixo em relação ao jogador
-            Vector3 shieldPosition = transform.position;
-            shieldPosition.y -= 0.2f; // Ajuste o valor conforme necessário para controlar a posição vertical
-            shieldObject.transform.position = shieldPosition;
-            
-            shieldObject.transform.parent = transform; // Tornar o escudo filho do personagem
-            isShieldActive = true;
-            
-            
-            // Agendar o desligamento do escudo após a duração especificada
-            StartCoroutine(DeactivateShield());
-        
-            // Atualizar o tempo da última ativação do escudo
-            lastShieldActivationTime = currentTime;
+            float currentTime = Time.time;
+
+            if (!isShieldActive && (currentTime - lastShieldActivationTime >= shieldCooldown))
+            {
+                // Criar o escudo como um objeto GameObject com o sprite do escudo
+                shieldObject = new GameObject("Shield");
+                SpriteRenderer spriteRenderer = shieldObject.AddComponent<SpriteRenderer>();
+                spriteRenderer.sprite = shieldSprite;
+                spriteRenderer.sortingOrder = 3; // Certifique-se de que o escudo apareça acima do personagem
+
+                // Defina a posição do escudo um pouco mais abaixo em relação ao jogador
+                Vector3 shieldPosition = transform.position;
+                shieldPosition.y -= 0.2f; // Ajuste o valor conforme necessário para controlar a posição vertical
+                shieldObject.transform.position = shieldPosition;
+
+                shieldObject.transform.parent = transform; // Tornar o escudo filho do personagem
+                isShieldActive = true;
+
+
+                // Agendar o desligamento do escudo após a duração especificada
+                StartCoroutine(DeactivateShield());
+
+                // Atualizar o tempo da última ativação do escudo
+                lastShieldActivationTime = currentTime;
+            }
+            else
+            {
+                // Desativar o escudo destruindo o objeto GameObject do escudo
+                Destroy(shieldObject);
+                isShieldActive = false;
+            }
         }
-        else
-        {
-            // Desativar o escudo destruindo o objeto GameObject do escudo
-            Destroy(shieldObject);
-            isShieldActive = false;
-        }
-        
+
         IEnumerator DeactivateShield()
         {
             yield return new WaitForSeconds(shieldDuration);
@@ -170,24 +164,28 @@ public class Player : MonoBehaviour
     {
         Move();
     }
-    
+
     void Dash()
     {
-        if (Input.GetKeyDown(KeyCode.E)) // Dash para a direita
+        if (stage2 == true)
         {
-            PerformDash(Vector2.right);
-        }
-        else if (Input.GetKeyDown(KeyCode.Q)) // Dash para a esquerda
-        {
-            PerformDash(Vector2.left);
-        }
-        else if (Input.GetKeyDown(KeyCode.W)) // Dash para cima
-        {
-            PerformDash(Vector2.up);
-        }
-        else if (Input.GetKeyDown(KeyCode.T)) // Dash para baixo
-        {
-            PerformDash(Vector2.down);
+
+            if (Input.GetKeyDown(KeyCode.E)) // Dash para a direita
+            {
+                PerformDash(Vector2.right);
+            }
+            else if (Input.GetKeyDown(KeyCode.Q)) // Dash para a esquerda
+            {
+                PerformDash(Vector2.left);
+            }
+            else if (Input.GetKeyDown(KeyCode.W)) // Dash para cima
+            {
+                PerformDash(Vector2.up);
+            }
+            else if (Input.GetKeyDown(KeyCode.T)) // Dash para baixo
+            {
+                PerformDash(Vector2.down);
+            }
         }
     }
 
@@ -213,8 +211,8 @@ public class Player : MonoBehaviour
         isInvulnerable = false;
         
     }
-
-
+    
+    
     void Move()
     {
         M = Input.GetAxis("Horizontal");
