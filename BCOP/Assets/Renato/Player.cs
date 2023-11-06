@@ -7,12 +7,28 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
 
-    public Text lifeText;
+    public Text lifeText;   
+    public Image healthBar;
+    
+    public int maxHealth = 100; // Defina o valor da vida máxima do jogador aqui
+
+
 
     private bool isDashing = false;
     private bool isInvulnerable = false;
     private float dashDuration = 0.5f; // Ajuste a duração do dash conforme necessário
     public float dashDistance = 2.0f; // Ajuste a distância do dash conforme necessário
+    private float lastDashTime = -9999.0f; // Inicializado com um valor muito negativo para garantir que o dash possa ser usado imediatamente
+    private float dashCooldown = 3.0f; // Defina o tempo de cooldown do dash aqui
+    private bool isDashActive = false;
+    private float dashCooldownTimer = 0f;
+    private bool canDash = true;
+
+    
+
+
+
+
     
     public Text dashCooldownText;
     public Text shieldCooldownText;
@@ -57,7 +73,12 @@ public class Player : MonoBehaviour
         
         shieldObject = null;
 
-        lifeText = GameObject.Find("lifeText").GetComponent<Text>();
+        lifeText = GameObject.Find("lifeText").GetComponent<Text>();    
+        
+        
+        health = maxHealth;
+        
+
 
 
     }
@@ -82,15 +103,28 @@ public class Player : MonoBehaviour
         // Atualizar o texto do tempo de recarga do dash
         float lastDashTime = 0;
         float dashCooldown = 0;
-        if (Time.time - lastDashTime < dashCooldown)
+        
+        
+        
+        if (isDashActive)
+        {
+            dashCooldownText.text = "Dash Ativo";
+        }
+        else if (Time.time - lastDashTime < dashCooldown)
         {
             float remainingDashCooldown = dashCooldown - (Time.time - lastDashTime);
-            dashCooldownText.text = "TP em: " + remainingDashCooldown.ToString("F1");
+            dashCooldownText.text = "Dash em: " + remainingDashCooldown.ToString("F1");
         }
         else
         {
-            dashCooldownText.text = "TP Pronto";
+            dashCooldownText.text = "Dash Pronto";
         }
+
+        
+        
+
+
+
 
         // Atualizar o texto do tempo de recarga do escudo
         if (isShieldActive)
@@ -106,16 +140,22 @@ public class Player : MonoBehaviour
         {
             shieldCooldownText.text = "Escudo Pronto";
         }
-        lifeText.text = "Life: " + health;
+        lifeText.text = "Life: " + health;      
+        
+        // Atualizar a escala da barra de vida
+        float fillAmount = (float)health / maxHealth;
+        healthBar.fillAmount = fillAmount;
+        
+        
 
         
+       
     }
     
     
     void ToggleShield()
     {
-        if (stage3 == true
-            )
+        if (stage3 == true)
         {
             float currentTime = Time.time;
 
@@ -166,10 +206,18 @@ public class Player : MonoBehaviour
     }
 
     void Dash()
-    {
+    {      
+        if (!canDash)
+        {
+            return; // Sai do método se o jogador não puder usar o dash
+        }
+        if (isDashActive || Time.time - lastDashTime < dashCooldown)
+        {
+            return; // Sai do método se o dash estiver em uso ou em cooldown
+        }
+
         if (stage2 == true)
         {
-
             if (Input.GetKeyDown(KeyCode.E)) // Dash para a direita
             {
                 PerformDash(Vector2.right);
@@ -187,13 +235,22 @@ public class Player : MonoBehaviour
                 PerformDash(Vector2.down);
             }
         }
+        
+        
     }
+
 
     void PerformDash(Vector2 dashDirection)
     {
+        if (isDashActive || Time.time - lastDashTime < dashCooldown)
+        {
+            return; // Sai do método se o dash estiver ativo ou se o tempo de cooldown ainda não tiver passado
+        }
+
         isDashing = true;
         isInvulnerable = true;
-        
+
+        isDashActive = true;
 
         Vector2 dashPosition = (Vector2)transform.position + dashDirection.normalized * dashDistance;
 
@@ -201,6 +258,14 @@ public class Player : MonoBehaviour
         RIG.MovePosition(dashPosition);
 
         StartCoroutine(StopDash());
+
+        lastDashTime = Time.time; // Atualiza o tempo da última ativação do dash
+        
+        
+        
+
+
+
     }
 
 
@@ -209,8 +274,15 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(dashDuration);
         isDashing = false;
         isInvulnerable = false;
-        
+        isDashActive = false;
+
+        canDash = false; // Inicia o tempo de cooldown do dash
+
+        yield return new WaitForSeconds(dashCooldown); // Aguarda o tempo de cooldown
+
+        canDash = true; // Permite que o jogador use o dash novamente
     }
+
     
     
     void Move()
