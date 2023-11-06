@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class script : MonoBehaviour
+public class boss1 : MonoBehaviour
 {
     public float speed;
     public float walkTime;
@@ -28,7 +28,7 @@ public class script : MonoBehaviour
 
         if (timer >= walkTime)
         {
-            walkRight = walkRight;
+            walkRight = !walkRight;
             timer = 0f;
         }
 
@@ -43,6 +43,7 @@ public class script : MonoBehaviour
             transform.eulerAngles = new Vector2(0, 180);
             rig.velocity = Vector2.left * speed;
         }
-        anim.SetInteger("transition, 0");
+
+        
     }
 }
