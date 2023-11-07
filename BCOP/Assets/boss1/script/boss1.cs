@@ -2,30 +2,34 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class boss1 : MonoBehaviour
 {
-    public float speed;
-    public float walkTime;
-    public GameObject tiro;
-    public Transform firepoint;
-    public bool stage;
-    public float vida = 20;
+    public float moveSpeed;
+    public float attackRanger = 2.0f;
+    public float attackCooldown = 2.0f;
 
-    public float velocity;
-
+    private int health;
     private float timer;
     private bool walkRight;
     private bool isFire;
+    private bool enraged;
+    private Transform playerTransform;
+    private float lastAttackTime;
 
     private Rigidbody2D rig;
     public Animator anim;
-    
+
     // Start is called before the first frame update
     void Start()
     {
+        health = 100;
+        enraged = false;
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+        lastAttackTime = Time.time;
         anim = GetComponent<Animator>();
         rig = GetComponent<Rigidbody2D>();
     }
@@ -34,53 +38,57 @@ public class boss1 : MonoBehaviour
 
     private void Update()
     {
-        if (vida <= 10)
+        if (health <= 50 && !enraged)
         {
-            stage = true;
-        }
-    }
-
-    void FixedUpdate()
-    {
-        timer += Time.deltaTime;
-
-        if (timer >= walkTime)
-        {
-            walkRight = !walkRight;
-            timer = 0f;
+            Enrage();
         }
 
-        if (walkRight)
+        if (enraged)
         {
-            transform.eulerAngles = new Vector2(0, 0);
-            rig.velocity = Vector2.right * speed;
+            if (CanAttack())
+            {
+                AttackPlayer();
+            }
         }
-
         else
         {
-            transform.eulerAngles = new Vector2(0, 180);
-            rig.velocity = Vector2.left * speed;
+            Wander();
         }
 
-        void attack()
+        void Enrage()
         {
-            if (stage == false)
+            enraged = true;
+        }
+
+        void Wander()
+        {
+            Vector3 direction = (playerTransform.position - transform.position).normalized;
+            transform.position += direction * moveSpeed * Time.deltaTime;
+        }
+
+        void AttackPlayer()
+        {
+
+        }
+
+        bool CanAttack()
+        {
+            return (Time.time - lastAttackTime) >= attackCooldown;
+        }
+
+        void OnCollisionEnter2D(Collision2D col)
+        {
+            if (col.gameObject.CompareTag("Player"))
             {
-               anim.SetInteger("Transition", 2 );
-               GameObject bullet = Instantiate(tiro, firepoint.position, firepoint.rotation);
-               Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-               rb.velocity = firepoint.right * velocity;
-               Destroy(bullet, 2f);
+                int damage = 10;
+                TakeDamage(damage);
             }
         }
 
-        void attack2()
+        void TakeDamage(int damage)
         {
-            if (stage == true)
-            {
-                
-            }
+            health -= damage;
         }
+
     }
-    
-}
+}  
