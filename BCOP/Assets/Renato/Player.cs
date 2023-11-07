@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     
     public int maxHealth = 100; // Defina o valor da vida máxima do jogador aqui
 
+    public ParticleSystem dashParticles;
 
 
     private bool isDashing = false;
@@ -50,6 +51,7 @@ public class Player : MonoBehaviour
 
     private bool isfire;
     private bool IsJumPing;
+    private bool DoubleJump;
     public bool stage2 = false;
     public bool stage3 = false;
     
@@ -72,8 +74,7 @@ public class Player : MonoBehaviour
         AN = GetComponent<Animator>();
         
         shieldObject = null;
-
-        lifeText = GameObject.Find("lifeText").GetComponent<Text>();    
+        
         
         
         health = maxHealth;
@@ -100,10 +101,6 @@ public class Player : MonoBehaviour
                 ToggleShield(); // Ativar ou desativar o escudo
             }
         }
-        // Atualizar o texto do tempo de recarga do dash
-        float lastDashTime = 0;
-        float dashCooldown = 0;
-        
         
         
         if (isDashActive)
@@ -119,6 +116,7 @@ public class Player : MonoBehaviour
         {
             dashCooldownText.text = "Dash Pronto";
         }
+
 
         
         
@@ -140,7 +138,7 @@ public class Player : MonoBehaviour
         {
             shieldCooldownText.text = "Escudo Pronto";
         }
-        lifeText.text = "Life: " + health;      
+              
         
         // Atualizar a escala da barra de vida
         float fillAmount = (float)health / maxHealth;
@@ -241,7 +239,10 @@ public class Player : MonoBehaviour
 
 
     void PerformDash(Vector2 dashDirection)
-    {
+    {      
+        
+        dashParticles.Play();
+
         if (isDashActive || Time.time - lastDashTime < dashCooldown)
         {
             return; // Sai do método se o dash estiver ativo ou se o tempo de cooldown ainda não tiver passado
@@ -257,7 +258,10 @@ public class Player : MonoBehaviour
         // Teleporte o personagem para a nova posição
         RIG.MovePosition(dashPosition);
 
-        StartCoroutine(StopDash());
+        StartCoroutine(StopDash());     
+        
+        
+
 
         lastDashTime = Time.time; // Atualiza o tempo da última ativação do dash
         
@@ -275,6 +279,8 @@ public class Player : MonoBehaviour
         isDashing = false;
         isInvulnerable = false;
         isDashActive = false;
+        
+        dashParticles.Stop();
 
         canDash = false; // Inicia o tempo de cooldown do dash
 
@@ -328,10 +334,24 @@ public class Player : MonoBehaviour
             {
                 AN.SetInteger("transition", 2);
                 RIG.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
+                DoubleJump = true;
                 IsJumPing = true;
                 
             }
-        }   
+            else
+            {
+                if (DoubleJump)
+                {
+                    AN.SetInteger("transition", 2);
+                    RIG.AddForce(new Vector2(0, jumpForce * 1), ForceMode2D.Impulse);
+                    DoubleJump = false;
+                }
+            }
+        }
+        
+        
+            
+        
     }
 
     void AT()
