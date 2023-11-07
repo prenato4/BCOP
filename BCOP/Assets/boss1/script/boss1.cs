@@ -8,33 +8,27 @@ using UnityEngine.UI;
 
 public class boss1 : MonoBehaviour
 {
-    public float moveSpeed;
-    public float attackRanger = 2.0f;
-    public float attackCooldown = 2.0f;
+    public float walkTime;
+    public GameObject tiro;
+    public Transform firepoint;
+    public bool stage;
+    public float velocity;
+    public int speed;
 
+    private Rigidbody2D rig;
+    private Animator anim;
     private int health;
     private float timer;
     private bool walkRight;
-    private bool isFire;
     private bool enraged;
-    private Transform playerTransform;
-    private float lastAttackTime;
 
-    private Rigidbody2D rig;
-    public Animator anim;
-
-    // Start is called before the first frame update
     void Start()
     {
         health = 100;
         enraged = false;
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        lastAttackTime = Time.time;
         anim = GetComponent<Animator>();
         rig = GetComponent<Rigidbody2D>();
     }
-
-    // Update is called once per frame
 
     private void Update()
     {
@@ -42,53 +36,62 @@ public class boss1 : MonoBehaviour
         {
             Enrage();
         }
+    }
+    
+    void Enrage()
+    {
+        enraged = true;
+    }
 
-        if (enraged)
+    void FixedUpdate()
+    {
+        timer += Time.deltaTime;
+
+        if (timer >= walkTime)
         {
-            if (CanAttack())
-            {
-                AttackPlayer();
-            }
+            walkRight = !walkRight;
+            timer = 0f;
         }
+
+        if (walkRight)
+        {
+            transform.eulerAngles = new Vector2(0, 0);
+            rig.velocity = Vector2.right * speed;
+        }
+
         else
         {
-            Wander();
+            transform.eulerAngles = new Vector2(0, 180);
+            rig.velocity = Vector2.left * speed;
         }
 
-        void Enrage()
+        void CanAttack()
         {
-            enraged = true;
-        }
-
-        void Wander()
-        {
-            Vector3 direction = (playerTransform.position - transform.position).normalized;
-            transform.position += direction * moveSpeed * Time.deltaTime;
-        }
-
-        void AttackPlayer()
-        {
-
-        }
-
-        bool CanAttack()
-        {
-            return (Time.time - lastAttackTime) >= attackCooldown;
-        }
-
-        void OnCollisionEnter2D(Collision2D col)
-        {
-            if (col.gameObject.CompareTag("Player"))
+            if (stage == false)
             {
-                int damage = 10;
-                TakeDamage(damage);
+                anim.SetInteger("Transition", 2);
+                GameObject bullet = Instantiate(tiro, firepoint.position, firepoint.rotation);
+                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                rb.velocity = firepoint.right * velocity;
+                Destroy(bullet, 2f);
             }
         }
 
-        void TakeDamage(int damage)
+        void attack2()
         {
-            health -= damage;
+            if (stage == true)
+            {
+                IEnumerator Attack()
+                {
+                    anim.SetBool("Attack", true);
+                    speed = 0;
+
+                    yield return new WaitForSeconds(0.85f);
+                    anim.SetBool("Attack", false);
+                    speed = 1;
+                }
+            }
         }
 
     }
-}  
+}
