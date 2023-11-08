@@ -9,7 +9,7 @@ public class Boss_Run : StateMachineBehaviour
 
     Transform player;
     Rigidbody2D rb;
-    Boss1 boss;
+    boss1 boss;
     
 
 
@@ -19,7 +19,7 @@ public class Boss_Run : StateMachineBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = animator.GetComponent<Rigidbody2D>();
-        boss = animator.GetComponent<Boss1>();
+        boss = animator.GetComponent<boss1>();
 
        
         
