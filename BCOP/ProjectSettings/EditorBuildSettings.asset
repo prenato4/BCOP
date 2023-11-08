@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Entrada.unity
+    guid: f4f2806e20b4d304499a59b38edc5578
+  - enabled: 1
     path: Assets/Renato/Player.unity
     guid: f7c802ade68817348bc37e4f997fee8f
   - enabled: 1
     path: Assets/Scenes/TESTE.unity
     guid: 7e264212e9eef0e4c94658754c9ac111
+  - enabled: 1
+    path: Assets/Scenes/Comandos.unity
+    guid: d4d10f220f23f5142a413d81a056ced1
   m_configObjects: {}
