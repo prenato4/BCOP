@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
             Dash();
             
             // Verificar se o botão "A" foi pressionado
-            if (Input.GetKeyDown(KeyCode.A))
+            if (Input.GetKeyDown(KeyCode.F))
             {
                 ToggleShield(); // Ativar ou desativar o escudo
             }
@@ -105,16 +105,16 @@ public class Player : MonoBehaviour
         
         if (isDashActive)
         {
-            dashCooldownText.text = "Dash Ativo";
+            dashCooldownText.text = "TP Ativo";
         }
         else if (Time.time - lastDashTime < dashCooldown)
         {
             float remainingDashCooldown = dashCooldown - (Time.time - lastDashTime);
-            dashCooldownText.text = "Dash em: " + remainingDashCooldown.ToString("F1");
+            dashCooldownText.text = "TP em: " + remainingDashCooldown.ToString("F1");
         }
         else
         {
-            dashCooldownText.text = "Dash Pronto";
+            dashCooldownText.text = "TP Pronto";
         }
 
 
@@ -216,19 +216,19 @@ public class Player : MonoBehaviour
 
         if (stage2 == true)
         {
-            if (Input.GetKeyDown(KeyCode.E)) // Dash para a direita
+            if (Input.GetKeyDown(KeyCode.V)) // Dash para a direita
             {
                 PerformDash(Vector2.right);
             }
-            else if (Input.GetKeyDown(KeyCode.Q)) // Dash para a esquerda
+            else if (Input.GetKeyDown(KeyCode.Z)) // Dash para a esquerda
             {
                 PerformDash(Vector2.left);
             }
-            else if (Input.GetKeyDown(KeyCode.W)) // Dash para cima
+            else if (Input.GetKeyDown(KeyCode.X)) // Dash para cima
             {
                 PerformDash(Vector2.up);
             }
-            else if (Input.GetKeyDown(KeyCode.T)) // Dash para baixo
+            else if (Input.GetKeyDown(KeyCode.C)) // Dash para baixo
             {
                 PerformDash(Vector2.down);
             }
@@ -361,7 +361,7 @@ public class Player : MonoBehaviour
 
     IEnumerator ATA()
     {
-        if (canFire && Input.GetKeyDown(KeyCode.F))
+        if (canFire && Input.GetKeyDown(KeyCode.B))
         {
             canFire = false;
             isfire = true;
