@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Renato/ScenesR/Win.unity
     guid: bd60816a77dc22e4ab2f726c35771f1e
+  - enabled: 1
+    path: Assets/Renato/ScenesR/Credits 1.unity
+    guid: 34eb800917e4f2b4fa782c126c633d6b
   m_configObjects: {}

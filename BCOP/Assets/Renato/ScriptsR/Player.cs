@@ -12,8 +12,11 @@ public class Player : MonoBehaviour
     public int maxHealth = 100; // Defina o valor da vida máxima do jogador aqui
 
     public ParticleSystem dashParticles;
-    
 
+    public AudioSource SomPulo;
+    public AudioSource SomAtack;
+    public AudioSource SomR;
+    public AudioSource SomP;
 
     private bool isDashing = false;
     private bool isInvulnerable = false;
@@ -300,44 +303,41 @@ public class Player : MonoBehaviour
         {
             RIG.velocity = new Vector2(M * speed, RIG.velocity.y);
 
-            if (M > 0)
+            if (M != 0)
             {
                 if (!IsJumPing)
                 {
                     AN.SetInteger("transition", 1);
                 }
 
-                transform.eulerAngles = new Vector3(0, 0, 0);
-            }
-
-            if (M < 0)
-            {
-                if (!IsJumPing)
+                transform.eulerAngles = new Vector3(0, M > 0 ? 0 : 180, 0);
+                if (!SomR.isPlaying)
                 {
-                    AN.SetInteger("transition", 1);
+                    SomR.Play();
                 }
-
-                transform.eulerAngles = new Vector3(0, 180, 0);
             }
-
-            if (M == 0 && !IsJumPing && !isfire)
+            else
             {
                 AN.SetInteger("transition", 0);
+                SomR.Stop();
             }
         }
     }
 
+    
+   
     void Jump()
     {
         if (Input.GetButtonDown("Jump"))
         {
+            
             if (!IsJumPing)
             {
                 AN.SetInteger("transition", 2);
                 RIG.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
                 DoubleJump = true;
                 IsJumPing = true;
-                
+                SomPulo.Play();
             }
             else
             {
@@ -346,6 +346,7 @@ public class Player : MonoBehaviour
                     AN.SetInteger("transition", 2);
                     RIG.AddForce(new Vector2(0, jumpForce * 1), ForceMode2D.Impulse);
                     DoubleJump = false;
+                    SomPulo.Play();
                 }
             }
         }
@@ -379,6 +380,7 @@ public class Player : MonoBehaviour
             {
                 Power.GetComponent<Attack>().Isright = true;
             }
+            //SomAtack.Play();
             yield return new WaitForSeconds(0.5f);
             isfire = false;
             AN.SetInteger("transition", 0);
@@ -388,6 +390,7 @@ public class Player : MonoBehaviour
 
             // Defina canFire como verdadeiro para permitir que o personagem atire novamente
             canFire = true;
+            
         }
     }
 
@@ -414,6 +417,7 @@ public class Player : MonoBehaviour
             {
                 GameController.instance.GameOver();
                 Destroy(GameObject.FindGameObjectWithTag("Player"));
+                //SomP.Stop();
                 
             }
             

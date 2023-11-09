@@ -14,10 +14,13 @@ public class GameController : MonoBehaviour
 
     public static GameController instance;
     
+    public Player player;
+    
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
+        player = FindObjectOfType<Player>();
     }
 
     // Update is called once per frame
@@ -38,16 +41,20 @@ public class GameController : MonoBehaviour
         if (IsPaused)
         {
             Time.timeScale = 0f;
+            //player.SomP.Pause();
+            
+            
         }
         else
         {
             Time.timeScale = 1f;
+            //player.SomP.UnPause();
         }
     }
 
     public void GameOver()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0f;
         Over.SetActive(true);
 
     }
