@@ -298,28 +298,28 @@ public class Player : MonoBehaviour
     void Move()
     {
         M = Input.GetAxis("Horizontal");
-
         if (!isDashing) // Verifique se o jogador não está no estado de dash
         {
             RIG.velocity = new Vector2(M * speed, RIG.velocity.y);
-
-            if (M != 0)
+            if (M > 0)
             {
                 if (!IsJumPing)
                 {
                     AN.SetInteger("transition", 1);
                 }
-
-                transform.eulerAngles = new Vector3(0, M > 0 ? 0 : 180, 0);
-                if (!SomR.isPlaying)
-                {
-                    SomR.Play();
-                }
+                transform.eulerAngles = new Vector3(0, 0, 0);
             }
-            else
+            if (M < 0)
+            {
+                if (!IsJumPing)
+                {
+                    AN.SetInteger("transition", 1);
+                }
+                transform.eulerAngles = new Vector3(0, 180, 0);
+            }
+            if (M == 0 && !IsJumPing && !isfire)
             {
                 AN.SetInteger("transition", 0);
-                SomR.Stop();
             }
         }
     }
@@ -370,27 +370,24 @@ public class Player : MonoBehaviour
             AN.SetInteger("transition", 3);
             
             GameObject Power = Instantiate(power, spawn.position, spawn.rotation);
-
             if (transform.rotation.y == 0 )
             {
                 Power.GetComponent<Attack>().Isright = true;
             }
-
             if (transform.rotation.y == 180)
             {
                 Power.GetComponent<Attack>().Isright = true;
             }
-            //SomAtack.Play();
+            
+            SomAtack.Play();
             yield return new WaitForSeconds(0.5f);
             isfire = false;
             AN.SetInteger("transition", 0);
             
-                // Aguarde um tempo antes de permitir que o personagem atire novamente
-                yield return new WaitForSeconds(0.3f);
-
+            // Aguarde um tempo antes de permitir que o personagem atire novamente
+            yield return new WaitForSeconds(0.3f);
             // Defina canFire como verdadeiro para permitir que o personagem atire novamente
             canFire = true;
-            
         }
     }
 
@@ -417,7 +414,7 @@ public class Player : MonoBehaviour
             {
                 GameController.instance.GameOver();
                 Destroy(GameObject.FindGameObjectWithTag("Player"));
-                //SomP.Stop();
+                SomP.Stop();
                 
             }
             
