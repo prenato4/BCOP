@@ -8,15 +8,16 @@ public class GameController : MonoBehaviour
 
     public GameObject Pause;
 
-    public GameObject GameOverr;
+    public GameObject Over;
 
     private bool IsPaused;
 
     public static GameController instance;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        instance = this;
     }
 
     // Update is called once per frame
@@ -46,6 +47,9 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
-        GameOverr.SetActive(true);
+        Time.timeScale = 0;
+        Over.SetActive(true);
+
     }
+    
 }

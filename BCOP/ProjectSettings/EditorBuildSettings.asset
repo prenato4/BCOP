@@ -6,12 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Entrada.unity
-    guid: f4f2806e20b4d304499a59b38edc5578
+    path: Assets/Renato/ScenesR/Entradaq.unity
+    guid: 3cd16fad10fad594cba34c79dad60f27
   - enabled: 1
-    path: Assets/Renato/Player.unity
+    path: Assets/Renato/ScenesR/Comandos.unity
+    guid: d4d10f220f23f5142a413d81a056ced1
+  - enabled: 1
+    path: Assets/Renato/ScenesR/Player.unity
     guid: f7c802ade68817348bc37e4f997fee8f
   - enabled: 1
-    path: Assets/Scenes/Comandos.unity
-    guid: d4d10f220f23f5142a413d81a056ced1
+    path: Assets/Renato/ScenesR/Credits.unity
+    guid: f4f2806e20b4d304499a59b38edc5578
+  - enabled: 1
+    path: Assets/Renato/ScenesR/Win.unity
+    guid: bd60816a77dc22e4ab2f726c35771f1e
   m_configObjects: {}

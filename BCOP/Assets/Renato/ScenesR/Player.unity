@@ -3902,7 +3902,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pause: {fileID: 2091545336}
-  GameOverr: {fileID: 521428357}
+  Over: {fileID: 521428357}
 --- !u!4 &618008003
 Transform:
   m_ObjectHideFlags: 0
@@ -4028,6 +4028,50 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &940783184
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 940783186}
+  - component: {fileID: 940783185}
+  m_Layer: 0
+  m_Name: o
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &940783185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940783184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40f681510d8e447419a19adaab138328, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &940783186
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 940783184}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1053.8516, y: 397.2304, z: -7.115358}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1045079354
 GameObject:
@@ -4207,6 +4251,10 @@ PrefabInstance:
     - target: {fileID: 5121884568426470990, guid: 02b78099cdd5e1f49a129f38d7746532, type: 3}
       propertyPath: jumpForce
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5121884568426470990, guid: 02b78099cdd5e1f49a129f38d7746532, type: 3}
+      propertyPath: maxHealth
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5121884568426470990, guid: 02b78099cdd5e1f49a129f38d7746532, type: 3}
       propertyPath: shieldSprite
@@ -4835,7 +4883,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1639903692}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 940783185}
+        m_TargetAssemblyTypeName: SceneM, Assembly-CSharp
+        m_MethodName: ChangeScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1639903692
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5635,7 +5695,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2141421148}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 940783185}
+        m_TargetAssemblyTypeName: SceneM, Assembly-CSharp
+        m_MethodName: ChangeScene2
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2141421148
 MonoBehaviour:
   m_ObjectHideFlags: 0

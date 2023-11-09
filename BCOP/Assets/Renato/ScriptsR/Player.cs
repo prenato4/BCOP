@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public int maxHealth = 100; // Defina o valor da vida máxima do jogador aqui
 
     public ParticleSystem dashParticles;
+    
 
 
     private bool isDashing = false;
@@ -86,6 +87,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         Jump();
 
         if (!isDashing)
@@ -411,7 +413,11 @@ public class Player : MonoBehaviour
             if (health <= 0)
             {
                 GameController.instance.GameOver();
+                Destroy(GameObject.FindGameObjectWithTag("Player"));
+                
             }
+            
+                
         }
     }
     

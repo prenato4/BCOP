@@ -7,7 +7,7 @@ public class SceneM : MonoBehaviour
 {
     public void ChangeScene()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
     public void ChangeScene1()
     {
@@ -19,7 +19,14 @@ public class SceneM : MonoBehaviour
     }
     public void ChangeScene3()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(3);
     }
-    
+    public void ChangeScene4()
+    {
+        SceneManager.LoadScene(4);
+    }
+    public void Close()
+    {
+        Application.Quit();
+    }
 }
