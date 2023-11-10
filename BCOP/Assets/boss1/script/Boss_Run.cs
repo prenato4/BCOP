@@ -11,6 +11,8 @@ public class Boss_Run : StateMachineBehaviour
     Rigidbody2D rb;
     boss1 boss;
     
+    [SerializeField] public AudioSource attackSound;
+    
 
 
 
@@ -20,9 +22,10 @@ public class Boss_Run : StateMachineBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         rb = animator.GetComponent<Rigidbody2D>();
         boss = animator.GetComponent<boss1>();
+        attackSound = boss.attackSound;
 
-       
-        
+
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -37,6 +40,10 @@ public class Boss_Run : StateMachineBehaviour
         if (Vector2.Distance(player.position, rb.position) <= attackRange)
         {
             animator.SetTrigger("Attack");
+            if (!attackSound.isPlaying)
+            {
+                attackSound.Play();
+            }
         }
     }
 

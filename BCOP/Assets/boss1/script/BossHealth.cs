@@ -7,14 +7,16 @@ using UnityEngine.UI;
 public class BossHealth : MonoBehaviour
 {
     public int health = 500;
+    public Slider healthBar;
 
     public GameObject deathEffect;
 
     public bool isInvulnerable = false;
 
-    public Image barradevida;
-    public Image barrared;
-    public Image vidaVerde ;
+    public AudioSource audioSource;
+    public AudioClip hurtSound;
+    public AudioClip dieSound;
+
 
     public void TakeDamage(int damage)
     {
@@ -22,6 +24,7 @@ public class BossHealth : MonoBehaviour
             return;
 
         health -= damage;
+        healthBar.value = health;
 
         if (health <= 200)
         {
@@ -30,13 +33,14 @@ public class BossHealth : MonoBehaviour
 
         if (health <= 0)
         {
+            audioSource.PlayOneShot(dieSound);
             Die();
         }
     }
 
     void Die()
     {
-        Instantiate(deathEffect, transform.position, Quaternion.identity);
+        //Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(gameObject);
     }
 }

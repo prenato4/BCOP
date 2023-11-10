@@ -9,6 +9,8 @@ public class boss1 : MonoBehaviour
     public Transform player;
 
     public bool isFlipped = false;
+    
+    [SerializeField] public AudioSource attackSound;
 
     public GameObject balaProjetil;
     public Transform firepoint;
