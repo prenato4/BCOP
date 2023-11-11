@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BossHealth : MonoBehaviour
@@ -18,7 +18,7 @@ public class BossHealth : MonoBehaviour
     public AudioClip dieSound;
 
 
-    public void TakeDamage(int damage)
+    public void Damage(int damage)
     {
         if (isInvulnerable)
             return;
@@ -33,13 +33,8 @@ public class BossHealth : MonoBehaviour
 
         if (health <= 0)
         {
-            audioSource.PlayOneShot(dieSound);
-            Die();
+            Destroy(gameObject);
+            SceneManager.LoadScene(7);
         }
-    }
-
-    void Die()
-    {
-        Destroy(gameObject);
     }
 }

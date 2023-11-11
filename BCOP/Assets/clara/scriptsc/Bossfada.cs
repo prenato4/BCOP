@@ -1,18 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Bossfada : MonoBehaviour
 {
     public float speed;
     public float flayTime;
     public bool flayRight = true;
-
-    public int health;
+    
     private float timer;
 
     private Animator anim;
     private Rigidbody2D rig;
+    public int health;
+    public int damage;
+
     
     // Start is called before the first frame update
     void Start()
@@ -44,14 +47,15 @@ public class Bossfada : MonoBehaviour
         }
     }
 
-    public void Damage(int dmg)
+    public void Damage(int D)
     {
-        health -= dmg; 
         anim.SetTrigger("hit");
+        health -= D;
 
         if (health <= 0)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene(6);
         }
     }
 }

@@ -41,30 +41,16 @@ public class Attack : MonoBehaviour
             CO.GetComponent<BossR>().Damage(damage);
             Destroy(gameObject);
         }
+        
         if (CO.gameObject.tag == "BOSSI")
         {
-            CO.GetComponent<BossR>().Damage(damage);
-            Destroy(gameObject);
-        }
-        if (CO.gameObject.tag == "BOSSII")
-        {
-            CO.GetComponent<BossR>().Damage(damage);
+            CO.GetComponent<BossHealth>().Damage(damage);
             Destroy(gameObject);
         }
         
-        if (CO.gameObject.tag == "Enemy")
-        {
-            CO.GetComponent<Boss1R>().Damage(damage);
-            Destroy(gameObject);
-        }
-        if (CO.gameObject.tag == "BOSSI")
-        {
-            CO.GetComponent<Boss1R>().Damage(damage);
-            Destroy(gameObject);
-        }
         if (CO.gameObject.tag == "BOSSII")
         {
-            CO.GetComponent<Boss1R>().Damage(damage);
+            CO.GetComponent<Bossfada>().Damage(damage);
             Destroy(gameObject);
         }
             
