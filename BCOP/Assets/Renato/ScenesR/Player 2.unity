@@ -5119,7 +5119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5121884568426470990, guid: 02b78099cdd5e1f49a129f38d7746532, type: 3}
       propertyPath: health
-      value: 100
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5121884568426470990, guid: 02b78099cdd5e1f49a129f38d7746532, type: 3}
       propertyPath: stage2
@@ -5151,7 +5151,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5121884568426470990, guid: 02b78099cdd5e1f49a129f38d7746532, type: 3}
       propertyPath: maxHealth
-      value: 100
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5121884568426470990, guid: 02b78099cdd5e1f49a129f38d7746532, type: 3}
+      propertyPath: dashDistance
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5121884568426470990, guid: 02b78099cdd5e1f49a129f38d7746532, type: 3}
       propertyPath: shieldSprite

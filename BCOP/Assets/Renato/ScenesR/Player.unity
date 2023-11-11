@@ -4633,11 +4633,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5121884568426470990, guid: 02b78099cdd5e1f49a129f38d7746532, type: 3}
       propertyPath: stage2
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5121884568426470990, guid: 02b78099cdd5e1f49a129f38d7746532, type: 3}
       propertyPath: stage3
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5121884568426470990, guid: 02b78099cdd5e1f49a129f38d7746532, type: 3}
       propertyPath: SomPulo
@@ -4783,7 +4783,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1189375955
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4943,7 +4943,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1344813344
 RectTransform:
   m_ObjectHideFlags: 0
